@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { listIdUsersController } from "modules/users/useCases/listIdUsers ";
 
 import { createUserController } from "../modules/users/useCases/createUser";
 import { listAllUsersController } from "../modules/users/useCases/listAllUsers";

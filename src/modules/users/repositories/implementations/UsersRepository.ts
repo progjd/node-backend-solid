@@ -1,5 +1,3 @@
-import { request, response } from "express";
-
 import { User } from "../../model/User";
 import { IUsersRepository, ICreateUserDTO } from "../IUsersRepository";
 
@@ -37,6 +35,12 @@ class UsersRepository implements IUsersRepository {
     // Complete aqui
     const findIndex = this.users.find((user) => user.id === id);
     return findIndex;
+  }
+  delete(id: string): void | undefined {
+    const findUser = this.users.findIndex((user) => user.id === id);
+    if (findUser < 0) {
+      throw new Error("user not found");
+    }
   }
 
   findByEmail(email: string): User | undefined {
